@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fafafa">
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/patientId"
+        android:layout_weight="1"
+        android:textSize="18sp"
+        android:textColor="@android:color/secondary_text_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="patientId"/>
+
+
+    <TextView
+        android:id="@+id/examDate"
+        android:layout_weight="1"
+        android:textSize="18sp"
+        android:textColor="@android:color/secondary_text_light"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"/>
+
+
+    <Button
+        android:id="@+id/detailsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="@string/details"/>
+
+</LinearLayout>

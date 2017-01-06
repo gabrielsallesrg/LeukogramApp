@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/home" />
+
+        <item
+            android:id="@+id/new_exam"
+            android:icon="@drawable/ic_add_circle_black_24dp"
+            android:title="@string/new_exam" />
+        <item
+            android:id="@+id/manage_exams"
+            android:icon="@drawable/ic_format_list_bulleted_black_24dp"
+            android:title="@string/manage_exams" />
+
+        <item
+            android:id="@+id/user_profile"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="@string/user_profile" />
+
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/settings" />
+    </group>
+
+    <item android:title="Debug">
+        <menu>
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Add exams / Patients" />
+        </menu>
+    </item>
+
+</menu>

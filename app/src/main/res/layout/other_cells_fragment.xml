@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/otherCellsGrid"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:verticalSpacing="10dp"
+    android:horizontalSpacing="10dp">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/cell6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/buttonshape"
+            android:longClickable="true"
+            android:text="@string/cell6" />
+
+        <Button
+            android:id="@+id/cell7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/buttonshape"
+            android:longClickable="true"
+            android:text="@string/cell7" />
+
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/cell8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/buttonshape"
+            android:longClickable="true"
+            android:text="@string/cell8" />
+
+        <Button
+            android:id="@+id/cell9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/buttonshape"
+            android:longClickable="true"
+            android:text="@string/cell9" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/cell10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:background="#f5f5f5"
+            android:longClickable="false"
+            android:clickable="false"
+            style="?android:attr/borderlessButtonStyle"
+             />
+
+        <Button
+            android:id="@+id/cell11"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/buttonshape"
+            android:longClickable="true"
+            android:text="@string/cell11" />
+
+    </TableRow>
+
+</TableLayout>
