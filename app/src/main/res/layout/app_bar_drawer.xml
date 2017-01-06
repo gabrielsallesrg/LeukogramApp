@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="#00ff00"
-    tools:context="br.com.rg.gabrielsalles.leukogramapp.br.com.rg.gabrielsalles.leukogramapp.DrawerActivity">
+    tools:context="br.com.rg.gabrielsalles.leukogramapp.DrawerActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
