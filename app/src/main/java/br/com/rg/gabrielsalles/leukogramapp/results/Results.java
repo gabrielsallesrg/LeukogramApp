@@ -1,10 +1,14 @@
 package br.com.rg.gabrielsalles.leukogramapp.results;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +22,7 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -49,6 +54,7 @@ public class Results extends DrawerActivity {
     private ExamsListAdapter examsListAdapter;
     private final int REQUEST_USER_DATA = 1;
     private final int DELETE_EXAMS = 8;
+    private final int REQUEST_WRITE_PERMISSION = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +64,11 @@ public class Results extends DrawerActivity {
         LayoutInflater layoutInflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.activity_results, null);
         r1.addView(view, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         final GetAllExamsQuery getAllExamsQuery = new GetAllExamsQuery(getApplicationContext());
         try {
@@ -112,10 +123,38 @@ public class Results extends DrawerActivity {
                      .show();
              return true;
          } else if (id == shareId) {
-             ExportExams();
+             if (Build.VERSION.SDK_INT < 23) {
+                 ExportExams();
+             } else {
+                 checkRequestWritePermission();
+             }
              return true;
         }
         return false;
+    }
+
+    private void checkRequestWritePermission() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (this.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                ExportExams();
+            } else {
+                this.requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_PERMISSION);
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case REQUEST_WRITE_PERMISSION: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    ExportExams();
+                } else {
+                    Toast.makeText(this, getString(R.string.permission_reason), Toast.LENGTH_LONG).show();
+                }
+            }
+        }
     }
 
     private void DeleteExams() {
@@ -210,10 +249,6 @@ public class Results extends DrawerActivity {
             e.printStackTrace();
         }
     }
-
-
-
-
 
     private class ExamsListAdapter extends ArrayAdapter<Exam> {
 

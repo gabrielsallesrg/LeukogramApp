@@ -44,4 +44,5 @@
     <string name="totalCellsNumberMessage">Qual será o total de células por μL?</string>
     <string name="totalCellsTitle">Total de Células</string>
     <string name="totalCellsDefault">Padrão: 10.000</string>
+    <string name="permission_reason">Sem esta permissão, não será possível escrever o arquivo para exportação.</string>
 </resources>

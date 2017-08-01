@@ -149,16 +149,20 @@ public class OtherCells_Fragment extends Fragment {
                                     ((CellsListing_Activity)getActivity()).addCell(pos, btn);
 
                                     CheckBox checkBox = (CheckBox) ((AlertDialog) dialog).findViewById(R.id.dialog_cell_checkbox);
-                                    if (checkBox.isChecked())
-                                        ((CellsListing_Activity)getActivity()).setStudentHelperOff();
+                                    if (checkBox.isChecked()) {
+                                        ((CellsListing_Activity) getActivity()).setStudentHelperOff();
+                                        ((CellsListing_Activity) getActivity()).toggleHideyBar();
+                                    }
                                 }
                             })
                             .setNegativeButton(R.string.incorrect, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     CheckBox checkBox = (CheckBox) ((AlertDialog) dialog).findViewById(R.id.dialog_cell_checkbox);
-                                    if (checkBox.isChecked())
-                                        ((CellsListing_Activity)getActivity()).setStudentHelperOff();
+                                    if (checkBox.isChecked()) {
+                                        ((CellsListing_Activity) getActivity()).setStudentHelperOff();
+                                        ((CellsListing_Activity) getActivity()).toggleHideyBar();
+                                    }
                                 }
                             })
                             .show();

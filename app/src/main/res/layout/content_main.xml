@@ -109,6 +109,7 @@
             android:orientation="vertical"
             android:layout_margin="10dp"
             android:background="#9fa8da"
+            android:visibility="invisible"
             android:layout_weight="1">
 
             <ImageView

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,8 @@ import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -55,6 +58,7 @@ public class CellsListing_Activity extends AppCompatActivity {
         tabLayout.setTabTextColors(Color.parseColor("#BBBBBB"), Color.parseColor("#FFFFFF"));
         cellsCount = 0;
         populateCellArray();
+//        toggleHideyBar();
 
         new AlertDialog.Builder(this)
                 .setTitle(R.string.totalCellsTitle)
@@ -70,6 +74,35 @@ public class CellsListing_Activity extends AppCompatActivity {
                     }
                 }).show();
 
+    }
+
+    public void toggleHideyBar() {
+        int uiOptions = getWindow().getDecorView().getSystemUiVisibility();
+        int newUiOptions = uiOptions;
+        boolean isImmersiveModeEnabled =
+                ((uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY) == uiOptions);
+        if (isImmersiveModeEnabled) {
+            Log.i("Testing immersive", "Turning immersive mode mode off. ");
+        } else {
+            Log.i("Testing immersive", "Turning immersive mode mode on.");
+        }
+
+        // Navigation bar hiding:  Backwards compatible to ICS.
+        if (Build.VERSION.SDK_INT >= 14) {
+            newUiOptions ^= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        }
+
+        // Status bar hiding: Backwards compatible to Jellybean
+        if (Build.VERSION.SDK_INT >= 16) {
+            newUiOptions ^= View.SYSTEM_UI_FLAG_FULLSCREEN;
+        }
+
+        if (Build.VERSION.SDK_INT >= 18) {
+            newUiOptions ^= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        }
+
+        getWindow().getDecorView().setSystemUiVisibility(newUiOptions);
+        //END_INCLUDE (set_ui_flags)
     }
 
     @Override

@@ -69,4 +69,6 @@
     <string name="main_cells">MAIN CELLS</string>
     <string name="other_cells">OTHER CELLS</string>
     <string name="end_exam_uppercase">END EXAM</string>
+
+    <string name="permission_reason">Without this permission, it will not be possible to write the file to export.</string>
 </resources>

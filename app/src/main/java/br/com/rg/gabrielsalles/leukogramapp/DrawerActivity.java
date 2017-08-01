@@ -17,12 +17,10 @@ import com.facebook.stetho.Stetho;
 import com.facebook.stetho.dumpapp.DumperPlugin;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import br.com.rg.gabrielsalles.leukogramapp.profiles.ChoosePatient;
 import br.com.rg.gabrielsalles.leukogramapp.profiles.MainUser;
 import br.com.rg.gabrielsalles.leukogramapp.results.Results;
-import br.com.rg.gabrielsalles.leukogramapp.sqlite.SqliteQueries;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -106,13 +104,13 @@ public class DrawerActivity extends AppCompatActivity
             Intent intent = new Intent(getApplicationContext(), MainUser.class);
             startActivity(intent);
             finish();
-        } else if (id == R.id.nav_send) {
-            SqliteQueries newPatient = new SqliteQueries(getApplicationContext(), 3);
-            SqliteQueries newExam = new SqliteQueries(getApplicationContext(), 7);
-            Random r = new Random();
-            int i = r.nextInt(1001 - 50) + 50;
-            newPatient.execute("João " + Integer.toString(i), "Alvares "  + Integer.toString(i),  Integer.toString(i), "04/11/2016", "M");
-            newExam.execute(Integer.toString(i), "10", "10", "10", "10", "10", "10", "10", "10", "10", "10", "10", "10");
+//        } else if (id == R.id.nav_send) {
+//            SqliteQueries newPatient = new SqliteQueries(getApplicationContext(), 3);
+//            SqliteQueries newExam = new SqliteQueries(getApplicationContext(), 7);
+//            Random r = new Random();
+//            int i = r.nextInt(1001 - 50) + 50;
+//            newPatient.execute("João " + Integer.toString(i), "Alvares "  + Integer.toString(i),  Integer.toString(i), "04/11/2016", "M");
+//            newExam.execute(Integer.toString(i), "10", "10", "10", "10", "10", "10", "10", "10", "10", "10", "10", "10");
 
         }
 
